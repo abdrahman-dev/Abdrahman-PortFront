@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="contact-grid">
 
           {/* Contact Links */}
-          {contact.links.map((link, idx) => (
+          {contact.links.map((link: any, idx: number) => (
             <a
               key={idx}
               href={link.url}
@@ -30,7 +30,7 @@ const Contact = () => {
           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
             <input type="text" placeholder="Your Name" required />
             <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <textarea placeholder="Your Message" rows={4} required></textarea>
             <button type="submit" className="btn primary">Send Message</button>
           </form>
 
