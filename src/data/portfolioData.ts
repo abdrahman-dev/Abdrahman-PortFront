@@ -125,7 +125,7 @@ const data: PortfolioData = {
     },
     {
       name: "WhatsApp",
-      url: "https://wa.me/01148630739",
+      url: "https://wa.me/+201148630739",
       img: "https://cdn.simpleicons.org/whatsapp/25D366"
     }
   ]
