@@ -14,16 +14,19 @@ interface AboutData {
 
 interface Skill {
   name: string;
+  img?: string
 }
 
 interface Service {
   name: string;
   description: string;
+  img?: string;
 }
 
 interface ContactLink {
   name: string;
   url: string;
+  img?: string;
 }
 
 interface FeaturedRepo {
@@ -61,53 +64,74 @@ const data: PortfolioData = {
 
   skills: {
     "Programming Languages": [
-      { name: "C" },
-      { name: "C++" },
-      { name: "Python" },
-      { name: "JavaScript" },
-      { name: "TypeScript" }
+      { name: "C", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+      { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" }
     ],
     "Frameworks & Libraries": [
-      { name: "React" },
-      { name: "Node.js" },
-      { name: "Express" },
-      { name: "Flask" }
+      { name: "React" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},
+      { name: "Node.js" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
+      { name: "Express" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"},
+      { name: "Flask" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"}
     ],
     "Databases": [
-      { name: "SQLite" },
-      { name: "MongoDB" }
+      { name: "SQLite" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"},
+      { name: "MongoDB" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg"},
+      { name: "Firebase", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"}
     ],
     "Tools & Systems": [
-      { name: "Git" },
-      { name: "Linux" },
-      { name: "Docker" },
-      { name: "Mongoose" }
+      { name: "Git" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},
+      { name: "Linux" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"},
+      { name: "Docker" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},
+      { name: "Mongoose" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg"},
+      { name: "PostMan" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
     ],
     "Hardware & Embedded": [
-      { name: "Raspberry Pi" },
-      { name: "IoT" }
+      { name: "Raspberry Pi" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"},
+      { name: "IoT" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"}
     ]
   },
 
   services: [
     {
       name: "Full-Stack Web Development",
-      description: "Building complete web applications with React, Node.js, Express, and databases."
+      description: "Building complete web applications with React, Node.js, Express, and databases.",
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
     },
     {
       name: "Backend & API Development",
-      description: "Creating scalable, performant backend architectures and APIs, integrated with AI features."
+      description: "Creating scalable, performant backend architectures and APIs, integrated with AI features.",
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
     }
   ],
 
-  contact: {
-    links: [
-      { name: "Email", url: "mailto:your.email@example.com" },
-      { name: "GitHub", url: "https://github.com/yourusername" },
-      { name: "LinkedIn", url: "https://linkedin.com/in/yourprofile" },
-      { name: "WhatsApp", url: "https://wa.me/yourphonenumber" }
-    ]
-  },
+ contact: {
+  links: [
+    {
+      name: "Email",
+      url: "mailto:your.email@example.com",
+      img: "https://cdn.simpleicons.org/gmail/EA4335"
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/abdrahman-dev",
+      img: "https://cdn.simpleicons.org/github/ffffff"  // أبيض للـ dark theme
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/abdrahman-mussa/",
+      img: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/01148630739",
+      img: "https://cdn.simpleicons.org/whatsapp/25D366"
+    }
+  ]
+},
+
+// https://cdn.simpleicons.org/{icon-name}/{hex-color}
 
   featuredRepos: [
     { name: "movie-recommender-app", liveDemo: "https://movie-rec0mmender-app.netlify.app" }

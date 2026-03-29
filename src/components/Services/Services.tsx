@@ -14,7 +14,7 @@ const Services = () => {
           {services.map((service, idx) => (
             <div className="service-card" key={idx}>
               {/* مكان تحط icon أو صورة */}
-              <div className="service-icon">{/* <img src={service.img} alt={service.name} /> */}</div>
+              <div className="service-icon"><img src={service.img} alt={service.name} /></div>
               <h3>{service.name}</h3>
               {service.description && <p>{service.description}</p>}
             </div>

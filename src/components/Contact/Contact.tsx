@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="contact-grid">
 
           {/* Contact Links */}
-          {contact.links.map((link: any, idx: number) => (
+          {contact.links.map((link, idx: number) => (
             <a
               key={idx}
               href={link.url}
@@ -21,7 +21,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="contact-icon">{/* مكان لصورة أو icon */}</div>
+              <div className="contact-icon"><img src={link.img} alt={link.name} /></div>
               <span>{link.name}</span>
             </a>
           ))}

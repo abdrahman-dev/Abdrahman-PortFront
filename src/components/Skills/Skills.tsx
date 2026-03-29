@@ -18,7 +18,7 @@ const Skills = () => {
                 {skills[category].map((skill, index) => (
                   <div className="skill-item" key={index}>
                     {/* مكان تحط الصورة أو icon */}
-                    <div className="skill-icon">{/* <img src={skill.img} alt={skill.name} /> */}</div>
+                    <div className="skill-icon"><img src={skill.img} alt={skill.name} /></div>
                     <span>{skill.name}</span>
                   </div>
                 ))}
