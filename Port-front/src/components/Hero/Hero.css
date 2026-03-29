@@ -1,0 +1,157 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.05) 0%, transparent 70%);
+
+}
+
+/* Layout */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+/* Text */
+.hero-text {
+  max-width: 560px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-text h2 {
+  font-size: 1.15rem;
+  color: #60a5fa;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.3px;
+}
+
+.hero-text p {
+  color: #9ca3af;
+  font-size: 0.97rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.7;
+  max-width: 95%;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+/* Primary */
+.btn.primary {
+  background: #60a5fa;
+  color: #0d0d0f;
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.35);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(96, 165, 250, 0.5);
+}
+
+/* Secondary */
+.btn.secondary {
+  border: 0.5px solid rgba(96, 165, 250, 0.6);
+  color: #60a5fa;
+}
+
+.btn.secondary:hover {
+  background: rgba(96, 165, 250, 0.1);
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+/* CV */
+.btn.cv {
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  color: #ccc;
+}
+
+.btn.cv:hover {
+  border-color: #60a5fa;
+  color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+/* Avatar */
+.hero-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #111 0%, #050507 100%);
+  position: relative;
+}
+
+/* subtle glow */
+.avatar-circle::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(96,165,250,0.15), transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.avatar-circle span {
+  font-size: 2.1rem;
+  color: #60a5fa;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .avatar-circle {
+    width: 120px;
+    height: 120px;
+  }
+}

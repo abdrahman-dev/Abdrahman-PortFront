@@ -1,0 +1,92 @@
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 0.5px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(96, 165, 250, 0.3);
+  background: rgba(96, 165, 250, 0.02);
+}
+
+.project-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-card__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.project-card__lang {
+  font-size: 0.7rem;
+  color: #60a5fa;
+  border: 0.5px solid rgba(96, 165, 250, 0.25);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.project-card__desc {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-card__tag {
+  font-size: 0.7rem;
+  color: #6b7280;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(255, 255, 255, 0.07);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card__link {
+  font-size: 0.8rem;
+  color: #60a5fa;
+  border: 0.5px solid rgba(96, 165, 250, 0.35);
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.project-card__link:hover {
+  background: #60a5fa;
+  color: #0d0d0f;
+}
+
+.project-card__link--demo {
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.project-card__link--demo:hover {
+  background: #fff;
+  color: #0d0d0f;
+}
