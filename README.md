@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# AbdrahmanDev Portfolio (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast, responsive **developer portfolio website** built with **React + TypeScript + Vite**.  
+It highlights my background, featured projects, skills, services, and ways to contact me — in a clean single-page layout.
 
-Currently, two official plugins are available:
+## What this project does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Landing sections**: Navbar, Hero, About, Projects, Skills, Services, Contact, Footer
+- **Featured GitHub projects**: fetches repo details from the GitHub API and displays them (stars, language, topics, etc.)
+- **Contact**: EmailJS (client-side) + social links (GitHub, LinkedIn, WhatsApp, Email)
+- **Data-driven content**: portfolio content is centralized in `src/data/portfolioData.ts`
 
-## React Compiler
+## Tech used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** + **TypeScript**
+- **Vite** (dev server + build)
+- **React Router** (`BrowserRouter`)
+- **EmailJS** (`@emailjs/browser`)
+- **CSS** (component-level styles)
+- **ESLint**
 
-## Expanding the ESLint configuration
+## Run locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Folder structure
+
+```txt
+Abdrahmandev-portfolio/
+  public/
+    Myresume.pdf
+  src/
+    components/
+      About/
+      Contact/
+      Footer/
+      GitProjects/
+      Hero/
+      Navbar/
+      Services/
+      Skills/
+    data/
+      portfolioData.ts
+    hook/
+      useGitRepos.ts
+    App.tsx
+    main.tsx
+    App.css
+    index.css
+  package.json
+  vite.config.ts
+```
+
+## Customize content
+
+- **Main content** (name/title/bio/about/skills/services/contact links/featured repos): `src/data/portfolioData.ts`
+- **GitHub projects fetch**: `src/hook/useGitRepos.ts` (uses `GITHUB_USERNAME` + `featuredRepos`)
+
+## Scripts
+
+- **`npm run dev`**: start dev server
+- **`npm run build`**: typecheck + production build
+- **`npm run preview`**: preview production build
+- **`npm run lint`**: run ESLint
