@@ -8,6 +8,17 @@
   color: #fff;
   margin-bottom: 2rem;
   text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  margin: 0.8rem auto 0;
+  border-radius: 1px;
 }
 
 /* Grid Layout */
@@ -19,17 +30,35 @@
 
 /* Each service card */
 .service-card {
-  background: linear-gradient(180deg, #111 0%, #050507 100%);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.8) 0%, rgba(5, 5, 7, 0.8) 100%);
   border: 0.5px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
-  transition: 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0), transparent);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(96, 165, 250, 0.06);
+}
+
+.service-card:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.4), transparent);
 }
 
 /* Icon placeholder */
@@ -37,11 +66,18 @@
   width: 40px;
   height: 40px;
   margin: 0 auto 1rem;
-  background: rgba(96, 165, 250, 0.2);
+  background: rgba(96, 165, 250, 0.15);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover .service-icon {
+  background: rgba(96, 165, 250, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.15);
 }
 
 /* Service title */
@@ -49,6 +85,7 @@
   color: #60a5fa;
   font-size: 1rem;
   margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
 }
 
 /* Optional description */
@@ -56,6 +93,11 @@
   font-size: 0.85rem;
   color: #9ca3af;
   line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover p {
+  color: #d1d5db;
 }
 
 /* Responsive */

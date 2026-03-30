@@ -44,23 +44,26 @@ interface PortfolioData {
 }
 
 const data: PortfolioData = {
-  hero: {
-    name: "Abdrahman Walied Nasr",
-    title: "Full-Stack Developer · Backend & AI Engineer",
-    bio: "I build real, functional systems that solve problems. My focus is scalable backend architecture, AI-powered applications, and embedded systems. I don't wait to feel ready — I build until I become ready.",
-    cvPath: "../../public/Myresume.pdf"
-  },
+hero: {
+  name: "Abdrahman Walied Nasr",
+  title: "Software Developer · Backend & AI Engineer",
+  bio: "I build systems that don’t just work — they scale, perform, and last. From backend architecture to AI-powered solutions, I turn ideas into real, production-ready systems. With 2+ years of hands-on experience, I focus on building software that keeps working long after launch.",
+  cvPath: "../../public/Myresume.pdf"
+},
 
-  about: {
-    intro:
-      "I'm a developer focused on building real systems, not just demos. I care about performance, scalability, and creating solutions that actually work in real-world environments.",
-    focus:
-      "Backend architecture, APIs, and AI-powered applications.",
-    extra:
-      "Also working on Embedded Systems and IoT, integrating software with hardware.",
-    mindset:
-      "I build consistently, learn fast, and improve through execution — not waiting for the perfect moment."
-  },
+about: {
+  intro:
+    "I'm a software developer focused on building real-world systems, not just projects for display. I care deeply about performance, scalability, and writing code that survives real usage — not just demos.",
+  
+  focus:
+    "I specialize in backend architecture, API design, and integrating AI into practical applications that solve real problems.",
+  
+  extra:
+    "I also work with Embedded Systems and IoT, connecting software with hardware to build complete, intelligent systems.",
+  
+  mindset:
+    "I approach development as engineering, not just coding — applying system design principles and design patterns to build maintainable, scalable solutions that continue to perform after deployment."
+},
 
   skills: {
     "Programming Languages": [
@@ -93,18 +96,22 @@ const data: PortfolioData = {
     ]
   },
 
-  services: [
-    {
-      name: "Full-Stack Web Development",
-      description: "Building complete web applications with React, Node.js, Express, and databases.",
-      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-    },
-    {
-      name: "Backend & API Development",
-      description: "Creating scalable, performant backend architectures and APIs, integrated with AI features.",
-      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-    }
-  ],
+services: [
+  {
+    name: "Full-Stack System Development",
+    description: "Building complete, production-ready web applications from frontend to backend. I focus on clean architecture, performance, and scalability — not just getting things to work.",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+  },
+  {
+    name: "Backend Architecture & APIs",
+    description: "Designing and developing scalable backend systems and APIs using best practices, system design principles, and design patterns to ensure long-term reliability and maintainability.",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+  },
+  {
+    name: "AI-Powered Applications",
+    description: "Integrating AI into real applications — from recommendation systems to intelligent automation — turning complex ideas into practical, usable solutions.",
+    img: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png"  }
+],
 
  contact: {
   links: [

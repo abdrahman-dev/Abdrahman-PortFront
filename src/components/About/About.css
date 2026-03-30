@@ -12,12 +12,23 @@
   color: #fff;
   margin-bottom: 1.8rem;
   letter-spacing: 0.5px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  margin-top: 0.6rem;
+  border-radius: 1px;
 }
 
 .about-intro {
   color: #9ca3af;
   font-size: 0.97rem;
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 2.4rem;
   max-width: 90%;
 }
@@ -31,12 +42,17 @@
 .about-details p {
   font-size: 0.92rem;
   color: #9ca3af;
-  line-height: 1.65;
-  transition: color 0.25s ease;
+  line-height: 1.7;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0.5rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 1rem;
 }
 
 .about-details p:hover {
   color: #d1d5db;
+  border-left-color: rgba(96, 165, 250, 0.4);
+  padding-left: 1.3rem;
 }
 
 .about-details span {
@@ -57,5 +73,14 @@
 
   .about-intro {
     max-width: 100%;
+  }
+
+  .about-details p {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .about-details p:hover {
+    padding-left: 0;
   }
 }

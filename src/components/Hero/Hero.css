@@ -2,8 +2,8 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.05) 0%, transparent 70%);
-
+  background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.06) 0%, transparent 65%);
+  position: relative;
 }
 
 /* Layout */
@@ -23,22 +23,25 @@
   font-size: 3rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
   letter-spacing: 0.5px;
+  line-height: 1.15;
 }
 
 .hero-text h2 {
   font-size: 1.15rem;
   color: #60a5fa;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
   letter-spacing: 0.3px;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .hero-text p {
   color: #9ca3af;
   font-size: 0.97rem;
-  margin-bottom: 2.2rem;
-  line-height: 1.7;
+  margin-bottom: 2.4rem;
+  line-height: 1.75;
   max-width: 95%;
 }
 
@@ -50,35 +53,54 @@
 }
 
 .btn {
-  padding: 0.6rem 1.25rem;
+  padding: 0.65rem 1.35rem;
   border-radius: 8px;
-  font-size: 0.82rem;
-  transition: all 0.25s ease;
+  font-size: 0.84rem;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Primary */
 .btn.primary {
   background: #60a5fa;
   color: #0d0d0f;
-  box-shadow: 0 0 18px rgba(96, 165, 250, 0.35);
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.25);
+  font-weight: 500;
+}
+
+.btn.primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(96, 165, 250, 0.5);
+  box-shadow: 0 6px 30px rgba(96, 165, 250, 0.4), 0 0 50px rgba(96, 165, 250, 0.15);
+}
+
+.btn.primary:hover::before {
+  left: 100%;
 }
 
 /* Secondary */
 .btn.secondary {
-  border: 0.5px solid rgba(96, 165, 250, 0.6);
+  border: 0.5px solid rgba(96, 165, 250, 0.5);
   color: #60a5fa;
 }
 
 .btn.secondary:hover {
-  background: rgba(96, 165, 250, 0.1);
+  background: rgba(96, 165, 250, 0.08);
   border-color: #60a5fa;
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.12);
 }
 
 /* CV */
@@ -88,9 +110,10 @@
 }
 
 .btn.cv:hover {
-  border-color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.6);
   color: #60a5fa;
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.1);
 }
 
 /* Avatar */
@@ -110,17 +133,30 @@
   justify-content: center;
   background: radial-gradient(circle, #111 0%, #050507 100%);
   position: relative;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* subtle glow */
 .avatar-circle::before {
   content: "";
   position: absolute;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(96,165,250,0.15), transparent 70%);
+  width: 190px;
+  height: 190px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.12), transparent 70%);
   border-radius: 50%;
   z-index: -1;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.avatar-circle:hover {
+  border-color: rgba(96, 165, 250, 0.2);
+  transform: scale(1.03);
+}
+
+.avatar-circle:hover::before {
+  width: 210px;
+  height: 210px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.18), transparent 70%);
 }
 
 .avatar-circle span {

@@ -10,6 +10,17 @@
   margin-bottom: 3rem;
   text-align: center;
   letter-spacing: 0.5px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  margin: 0.8rem auto 0;
+  border-radius: 1px;
 }
 
 /* Grid */
@@ -25,12 +36,31 @@
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
   border: 0.5px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0), transparent);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .skill-category:hover {
-  border-color: rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.25);
   background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(96, 165, 250, 0.06);
+}
+
+.skill-category:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.4), transparent);
 }
 
 /* Category Title */
@@ -57,17 +87,18 @@
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
   border: 0.5px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: default;
 }
 
 .skill-item:hover {
-  background: rgba(96, 165, 250, 0.12);
-  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.35);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.08);
 }
 
-/* Icon Placeholder (جاهز للصورة) */
+/* Icon Placeholder */
 .skill-icon {
   width: 18px;
   height: 18px;
