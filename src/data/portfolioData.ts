@@ -17,6 +17,13 @@ interface Skill {
   img?: string
 }
 
+export interface CodewarsData {
+  username: string;
+  badgeUrl: string;
+  profileUrl: string;
+  description: string;
+}
+
 interface Service {
   name: string;
   description: string;
@@ -38,6 +45,7 @@ interface PortfolioData {
   hero: HeroData;
   about: AboutData;
   skills: Record<string, Skill[]>;
+  codewars: CodewarsData;
   services: Service[];
   contact: { links: ContactLink[] };
   featuredRepos: FeaturedRepo[];
@@ -112,6 +120,13 @@ services: [
     description: "Integrating AI into real applications — from recommendation systems to intelligent automation — turning complex ideas into practical, usable solutions.",
     img: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png"  }
 ],
+
+codewars: {
+  username: "abdrahman-dev",
+  badgeUrl: "https://www.codewars.com/users/abdrahman-dev/badges/large",
+  profileUrl: "https://www.codewars.com/users/abdrahman-dev",
+  description: "Actively solving algorithmic challenges to strengthen problem-solving, data structures, and algorithmic thinking."
+},
 
  contact: {
   links: [
