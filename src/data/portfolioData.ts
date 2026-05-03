@@ -67,7 +67,7 @@ hero: {
     { type: "cursor" },
   ]
 },
-
+ 
 about: {
   intro:
     "I'm a software developer focused on building real-world systems, not just projects for display. I care deeply about performance, scalability, and writing code that survives real usage — not just demos.",
