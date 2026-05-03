@@ -3,6 +3,7 @@ interface HeroData {
   title: string;
   bio: string;
   cvPath: string;
+  terminal: { type: "cmd" | "info" | "success" | "cursor"; text?: string }[];
 }
 
 interface AboutData {
@@ -56,7 +57,15 @@ hero: {
   name: "Abdrahman Walied Nasr",
   title: "Software Developer · Backend & AI Engineer",
   bio: "I build systems that don’t just work — they scale, perform, and last. From backend architecture to AI-powered solutions, I turn ideas into real, production-ready systems. With 2+ years of hands-on experience, I focus on building software that keeps working long after launch.",
-  cvPath: "../../public/Myresume.pdf"
+  cvPath: "../../public/Myresume.pdf",
+  terminal: [
+    { type: "cmd",     text: "whoami" },
+    { type: "info",    text: "abdrahman — engineer, builder, problem solver" },
+    { type: "cmd",     text: "cat mission.txt" },
+    { type: "success", text: "Building the future," },
+    { type: "success", text: "one commit at a time." },
+    { type: "cursor" },
+  ]
 },
 
 about: {

@@ -1,6 +1,6 @@
 .footer {
   padding: 2.5rem 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(96, 165, 250, 0.01) 100%);
+  background: transparent;
   text-align: center;
   border-top: 0.5px solid rgba(255, 255, 255, 0.06);
   position: relative;
