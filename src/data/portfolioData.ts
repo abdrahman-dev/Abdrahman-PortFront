@@ -56,8 +56,8 @@ const data: PortfolioData = {
 hero: {
   name: "Abdrahman Walied Nasr",
   title: "Software Developer · Backend & AI Engineer",
-  bio: "I build systems that don’t just work — they scale, perform, and last. From backend architecture to AI-powered solutions, I turn ideas into real, production-ready systems. With 2+ years of hands-on experience, I focus on building software that keeps working long after launch.",
-  cvPath: "../../public/Myresume.pdf",
+  bio: "I build systems that don’t just work — they scale, perform, and last. From backend architecture to AI-powered solutions, I turn ideas into real, production-ready systems. With 1+ year of hands-on experience, I focus on building software that keeps working long after launch.",
+  cvPath: "/Myresume.pdf",
   terminal: [
     { type: "cmd",     text: "whoami" },
     { type: "info",    text: "abdrahman — engineer, builder, problem solver" },
@@ -105,7 +105,7 @@ about: {
       { name: "Linux" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"},
       { name: "Docker" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},
       { name: "Mongoose" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg"},
-      { name: "PostMan" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
+      { name: "Postman" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
     ],
     "Hardware & Embedded": [
       { name: "Raspberry Pi" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"},

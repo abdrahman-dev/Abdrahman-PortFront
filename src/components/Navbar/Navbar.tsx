@@ -34,9 +34,10 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) setActiveId("#" + entry.target.id);
-        });
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) setActiveId("#" + visible[0].target.id);
       },
       { threshold: 0.4 }
     );
