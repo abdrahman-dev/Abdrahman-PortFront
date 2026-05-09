@@ -165,7 +165,8 @@ codewars: {
 // https://cdn.simpleicons.org/{icon-name}/{hex-color}
 
   featuredRepos: [
-    { name: "movie-recommender-app", liveDemo: "https://movie-rec0mmender-app.netlify.app" }
+    { name: "movie-recommender-app", liveDemo: "https://movie-rec0mmender-app.netlify.app" },
+    { name: "TrackYourJob", liveDemo: "https://track-your-job-liart.vercel.app" }
   ]
 };
 
