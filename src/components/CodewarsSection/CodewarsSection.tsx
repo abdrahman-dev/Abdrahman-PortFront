@@ -1,32 +1,43 @@
+import ScrollReveal from "../ui/ScrollReveal";
+import data from "../../data/portfolioData";
 import "./CodewarsSection.css";
-import data, { type CodewarsData } from "../../data/portfolioData.js";
 
 const CodewarsSection = () => {
-  const { codewars } = data as { codewars: CodewarsData };
+  const { codewars } = data;
 
   return (
     <section className="codewars" id="codewars">
       <div className="container">
-        <h2 className="section-title">Problem Solving & Algorithms</h2>
+        <ScrollReveal>
+          <span className="section-label">// problem solving</span>
+        </ScrollReveal>
 
-        <p className="codewars-description">
-          {codewars.description}
-        </p>
+        <ScrollReveal delay={0.1}>
+          <h2 className="section-title">Problem Solving & Algorithms</h2>
+        </ScrollReveal>
 
-        <div className="codewars-content">
-          <a
-            href={codewars.profileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="codewars-badge-link"
-          >
-            <img
-              src={codewars.badgeUrl}
-              alt={`${codewars.username} Codewars Badge`}
-              className="codewars-badge"
-            />
-          </a>
-        </div>
+        <ScrollReveal delay={0.2}>
+          <p className="codewars-description">{codewars.description}</p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.3}>
+          <div className="codewars-content">
+            <a
+              href={codewars.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="codewars-badge-link"
+              aria-label={`${codewars.username} Codewars profile`}
+            >
+              <img
+                src={codewars.badgeUrl}
+                alt={`${codewars.username} Codewars Badge`}
+                className="codewars-badge"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

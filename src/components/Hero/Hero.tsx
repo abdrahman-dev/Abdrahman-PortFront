@@ -1,115 +1,102 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "./Hero.css";
 import data from "../../data/portfolioData.ts";
-import { motion } from "framer-motion";
 
-interface HeroData {
-  name: string;
-  title: string;
-  bio: string;
-  cvPath: string;
-}
+const nameParts = data.hero.name.split(" ");
+const firstName = nameParts[0];
+const lastName = nameParts.slice(1).join(" ");
 
-interface PortfolioData {
-  hero: HeroData;
-}
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
 
-const { name, title, bio, cvPath } = (data as PortfolioData).hero;
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const },
+  },
+};
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.3, ease: "easeOut" as const, delay },
-});
-
-const TERMINAL_LINES = data.hero.terminal;
+const dots = Array.from({ length: 32 });
 
 const Hero = () => {
+  const [scrolled, setScrolled] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="hero" id="hero">
-      <div className="container hero-container">
-
-        {/* Text */}
-        <div className="hero-text">
-          <motion.h1 {...fadeUp(0.05)}>{name}</motion.h1>
-          <motion.h2 {...fadeUp(0.15)}>{title}</motion.h2>
-          <motion.p {...fadeUp(0.25)}>{bio}</motion.p>
-
-          <motion.div className="hero-buttons" {...fadeUp(0.35)}>
-            <motion.a
-              href="#projects" className="btn primary"
-              whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            >
-              View Projects
-            </motion.a>
-            <motion.a
-              href="#contact" className="btn secondary"
-              whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            >
-              Contact Me
-            </motion.a>
-            <motion.a
-              href={cvPath} download className="btn cv"
-              whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            >
-              Download CV
-            </motion.a>
-          </motion.div>
-        </div>
-
-        {/* Terminal */}
-        <motion.div
-          className="hero-terminal"
-          initial={{ opacity: 0, y: 16, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
-        >
-          <div className="terminal">
-            <div className="term-header">
-              <div className="dots">
-                <span className="dot red" />
-                <span className="dot yellow" />
-                <span className="dot green" />
-              </div>
-              <span className="term-title">abdrahman ~ portfolio</span>
-            </div>
-            <div className="term-body">
-              {TERMINAL_LINES.map((line, i) => (
-                <motion.div
-                  key={i}
-                  className={`term-line ${line.type}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 + i * 0.35, duration: 0.2 }}
-                >
-                  {line.type === "cmd" && (
-                    <>
-                      <span className="prompt">~$</span>
-                      <span className="cmd-text">{line.text}</span>
-                    </>
-                  )}
-                  {(line.type === "info" || line.type === "success") && (
-                    <span className="out-text">{line.text}</span>
-                  )}
-                  {line.type === "cursor" && (
-                    <>
-                      <span className="prompt">~$</span>
-                      <motion.span
-                        className="cursor-block"
-                        animate={{ opacity: [1, 0] }}
-                        transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-                      />
-                    </>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
+      <div className="hero__bg-graphic" aria-hidden="true">
+        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+          <g className="hero__bg-svg-group">
+            {dots.map((_, i) => (
+              <circle
+                key={i}
+                cx={(i % 8) * 60 + 30}
+                cy={Math.floor(i / 8) * 80 + 40}
+                r="3"
+                fill="currentColor"
+              />
+            ))}
+            <rect x="80" y="60" width="200" height="130" rx="12" fill="none" stroke="currentColor" strokeWidth="1" />
+            <rect x="160" y="120" width="220" height="140" rx="12" fill="none" stroke="currentColor" strokeWidth="1" />
+            <rect x="60" y="180" width="180" height="120" rx="12" fill="none" stroke="currentColor" strokeWidth="1" />
+            <line x1="0" y1="0" x2="500" y2="400" stroke="currentColor" strokeWidth="0.5" />
+            <line x1="500" y1="0" x2="0" y2="400" stroke="currentColor" strokeWidth="0.5" />
+            <circle cx="250" cy="200" r="140" fill="none" stroke="currentColor" strokeWidth="1" />
+          </g>
+        </svg>
       </div>
+
+      <div className="hero__content">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible">
+          <motion.div variants={itemVariants} className="status-pill">
+            <span className="status-dot" />
+            Available for work
+          </motion.div>
+
+          <motion.h1 variants={itemVariants} className="hero-headline">
+            <span className="hero-headline__normal">{firstName} </span>
+            <span className="hero-headline__gradient">{lastName}</span>
+          </motion.h1>
+
+          <motion.p variants={itemVariants} className="hero-subtitle">
+            {data.hero.title}
+          </motion.p>
+
+          <motion.p variants={itemVariants} className="hero-bio">
+            {data.hero.bio}
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="hero-buttons">
+            <a href="#projects" className="btn btn--primary">View Projects</a>
+            <a href="#contact" className="btn btn--outline">Contact Me</a>
+            <a href={data.hero.cvPath} download className="btn btn--ghost">Download CV</a>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        className="hero__scroll"
+        aria-hidden="true"
+        animate={{ opacity: scrolled > 100 ? 0 : 1, y: scrolled > 100 ? 10 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6 }}
+        >
+          ↓
+        </motion.span>
+      </motion.div>
     </section>
   );
 };

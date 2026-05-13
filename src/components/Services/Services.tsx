@@ -1,5 +1,6 @@
+import ScrollReveal from "../ui/ScrollReveal";
+import data from "../../data/portfolioData";
 import "./Services.css";
-import data from "../../data/portfolioData.js";
 
 const Services = () => {
   const { services } = data;
@@ -7,20 +8,29 @@ const Services = () => {
   return (
     <section className="services" id="services">
       <div className="container">
+        <ScrollReveal>
+          <span className="section-label">// services</span>
+        </ScrollReveal>
 
-        <h2 className="section-title">Services</h2>
+        <ScrollReveal delay={0.1}>
+          <h2 className="section-title">Services</h2>
+        </ScrollReveal>
 
         <div className="services-grid">
-          {services.map((service, idx) => (
-            <div className="service-card" key={idx}>
-              {/* مكان تحط icon أو صورة */}
-              <div className="service-icon"><img src={service.img} alt={service.name} /></div>
-              <h3>{service.name}</h3>
-              {service.description && <p>{service.description}</p>}
-            </div>
+          {services.map((service, i) => (
+            <ScrollReveal key={service.name} delay={0.2 + i * 0.1}>
+              <div className="service-card">
+                {service.img && (
+                  <div className="service-icon">
+                    <img src={service.img} alt="" />
+                  </div>
+                )}
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
-
       </div>
     </section>
   );

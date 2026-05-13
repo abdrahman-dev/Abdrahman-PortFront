@@ -1,4 +1,5 @@
 
+import { ThemeProvider } from "./context/ThemeContext"
 import Navbar from "./components/Navbar/Navbar"
 import Hero from "./components/Hero/Hero"
 import About from "./components/About/About"
@@ -9,11 +10,9 @@ import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/footer"
 import Projects from "./components/GitProjects/GitProjects"
 
-import "./App.css"
-
 function App() {
   return (
-    <div>
+    <ThemeProvider>
       <Navbar />
       <Hero />
       <About />
@@ -23,7 +22,7 @@ function App() {
       <Services />
       <Contact />
       <Footer />
-    </div>
+    </ThemeProvider>
   )
 }
 

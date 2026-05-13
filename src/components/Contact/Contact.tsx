@@ -1,28 +1,22 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import ScrollReveal from "../ui/ScrollReveal";
+import data from "../../data/portfolioData";
 import "./Contact.css";
-import data from "../../data/portfolioData.js";
-
-interface ContactLink {
-  url: string;
-  img: string;
-  name: string;
-}
-
-interface ContactData {
-  links: ContactLink[];
-}
-
-interface PortfolioData {
-  contact: ContactData;
-}
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 const Contact = () => {
-  const { contact } = data as PortfolioData;
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,78 +33,121 @@ const Contact = () => {
       );
       setStatus("success");
       formRef.current.reset();
+      timerRef.current = setTimeout(() => setStatus("idle"), 3000);
     } catch {
       setStatus("error");
     }
   };
 
+  const buttonContent = {
+    idle: { text: "Send Message" },
+    loading: { text: "Sending..." },
+    success: { text: "Sent!" },
+    error: { text: "Failed — try again" },
+  };
+
   return (
     <section className="contact" id="contact">
       <div className="container">
+        <ScrollReveal>
+          <span className="section-label">// contact</span>
+        </ScrollReveal>
 
-        <h2 className="section-title">Contact Me</h2>
+        <ScrollReveal delay={0.1}>
+          <h2 className="section-title">Contact Me</h2>
+        </ScrollReveal>
 
-        <div className="contact-grid">
+        <ScrollReveal delay={0.2}>
+          <div className="contact-grid">
+            {data.contact.links.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                className="contact-card"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+              >
+                <div className="contact-card__icon">
+                  <img src={link.img} alt="" />
+                </div>
+                <div className="contact-card__info">
+                  <span className="contact-card__name">{link.name}</span>
+                  {link.description && (
+                    <span className="contact-card__desc">{link.description}</span>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </ScrollReveal>
 
-          {/* Contact Links */}
-          {contact.links.map((link, idx: number) => (
-            <a
-              key={idx}
-              href={link.url}
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
+        <ScrollReveal delay={0.3}>
+          <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
+            <div className="floating-field">
+              <input
+                type="text"
+                name="from_name"
+                id="from_name"
+                required
+                className="floating-field__input"
+                placeholder=" "
+              />
+              <label htmlFor="from_name" className="floating-field__label">
+                Your Name
+              </label>
+            </div>
+
+            <div className="floating-field">
+              <input
+                type="email"
+                name="from_email"
+                id="from_email"
+                required
+                className="floating-field__input"
+                placeholder=" "
+              />
+              <label htmlFor="from_email" className="floating-field__label">
+                Your Email
+              </label>
+            </div>
+
+            <div className="floating-field">
+              <textarea
+                name="message"
+                id="message"
+                required
+                rows={4}
+                className="floating-field__input floating-field__input--textarea"
+                placeholder=" "
+              />
+              <label htmlFor="message" className="floating-field__label">
+                Your Message
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className={`contact-form__btn contact-form__btn--${status}`}
+              disabled={status === "loading"}
             >
-              <div className="contact-icon">
-                <img src={link.img} alt={link.name} />
-              </div>
-              <span>{link.name}</span>
-            </a>
-          ))}
-
-        </div>
-
-        {/* Contact Form */}
-        <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="from_name"
-            placeholder="Your Name"
-            required
-          />
-          <input
-            type="email"
-            name="from_email"
-            placeholder="Your Email"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={4}
-            required
-          />
-
-          <button
-            type="submit"
-            className="btn primary"
-            disabled={status === "loading"}
-          >
-            {status === "loading" ? "Sending..." : "Send Message"}
-          </button>
-
-          {status === "success" && (
-            <p className="form-msg form-msg--success">
-              Message sent successfully!
-            </p>
-          )}
-          {status === "error" && (
-            <p className="form-msg form-msg--error">
-              Something went wrong. Try again.
-            </p>
-          )}
-        </form>
-
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={status}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {status === "loading" && (
+                    <span className="spinner" />
+                  )}
+                  {buttonContent[status].text}
+                </motion.span>
+              </AnimatePresence>
+            </button>
+          </form>
+        </ScrollReveal>
       </div>
     </section>
   );

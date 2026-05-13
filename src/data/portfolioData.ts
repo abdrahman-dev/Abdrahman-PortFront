@@ -1,174 +1,129 @@
-interface HeroData {
-  name: string;
-  title: string;
-  bio: string;
-  cvPath: string;
-  terminal: { type: "cmd" | "info" | "success" | "cursor"; text?: string }[];
-}
-
-interface AboutData {
-  intro: string;
-  focus: string;
-  extra: string;
-  mindset: string;
-}
-
-interface Skill {
-  name: string;
-  img?: string
-}
-
-export interface CodewarsData {
-  username: string;
-  badgeUrl: string;
-  profileUrl: string;
-  description: string;
-}
-
-interface Service {
-  name: string;
-  description: string;
-  img?: string;
-}
-
-interface ContactLink {
-  name: string;
-  url: string;
-  img?: string;
-}
-
-interface FeaturedRepo {
-  name: string;
-  liveDemo: string | null;
-}
-
-interface PortfolioData {
-  hero: HeroData;
-  about: AboutData;
-  skills: Record<string, Skill[]>;
-  codewars: CodewarsData;
-  services: Service[];
-  contact: { links: ContactLink[] };
-  featuredRepos: FeaturedRepo[];
-}
+import type { PortfolioData } from "../types";
 
 const data: PortfolioData = {
-hero: {
-  name: "Abdrahman Walied Nasr",
-  title: "Software Developer · Backend & AI Engineer",
-  bio: "I build systems that don’t just work — they scale, perform, and last. From backend architecture to AI-powered solutions, I turn ideas into real, production-ready systems. With 1+ year of hands-on experience, I focus on building software that keeps working long after launch.",
-  cvPath: "/Myresume.pdf",
-  terminal: [
-    { type: "cmd",     text: "whoami" },
-    { type: "info",    text: "abdrahman — engineer, builder, problem solver" },
-    { type: "cmd",     text: "cat mission.txt" },
-    { type: "success", text: "Building the future," },
-    { type: "success", text: "one commit at a time." },
-    { type: "cursor" },
-  ]
-},
- 
-about: {
-  intro:
-    "I'm a software developer focused on building real-world systems, not just projects for display. I care deeply about performance, scalability, and writing code that survives real usage — not just demos.",
-  
-  focus:
-    "I specialize in backend architecture, API design, and integrating AI into practical applications that solve real problems.",
-  
-  extra:
-    "I also work with Embedded Systems and IoT, connecting software with hardware to build complete, intelligent systems.",
-  
-  mindset:
-    "I approach development as engineering, not just coding — applying system design principles and design patterns to build maintainable, scalable solutions that continue to perform after deployment."
-},
+  hero: {
+    name: "Abdrahman Walied Nasr",
+    title: "Backend Engineer · AI-Integrated Systems",
+    bio: "I build backend systems that don't just run — they scale, adapt, and keep working under real pressure. I specialize in integrating AI into production-ready applications, turning complex requirements into clean, maintainable architecture that companies can actually rely on.",
+    cvPath: "/Myresume.pdf",
+    terminal: [
+      { type: "cmd",     text: "whoami" },
+      { type: "info",    text: "abdrahman — engineer, builder, problem solver" },
+      { type: "cmd",     text: "cat mission.txt" },
+      { type: "success", text: "Building the future," },
+      { type: "success", text: "one commit at a time." },
+      { type: "cursor" },
+    ],
+  },
+
+  about: {
+    intro: "I'm a backend engineer who cares about systems that survive real usage — not just demos. I think in architecture, not just code, and I measure success by how well something holds up after launch.",
+    focus: "My focus is backend architecture, scalable API design, and integrating AI into systems that solve real business problems — not proofs of concept.",
+    extra: "I also work with Embedded Systems and IoT, which gives me a hardware-level perspective that most backend engineers don't have.",
+    mindset: "I approach every project as an engineering problem first. That means design patterns, system thinking, and writing code that the next developer — or the future me — can actually work with.",
+  },
 
   skills: {
     "Programming Languages": [
-      { name: "C", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
-      { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" }
+      { name: "C",          level: 4 },
+      { name: "Python",     level: 5 },
+      { name: "JavaScript", level: 5 },
+      { name: "TypeScript", level: 4 },
     ],
     "Frameworks & Libraries": [
-      { name: "React" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},
-      { name: "Node.js" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
-      { name: "Express" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"},
-      { name: "Flask" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"}
+      { name: "React",     level: 4 },
+      { name: "Node.js",   level: 5 },
+      { name: "Express",   level: 5 },
+      { name: "Flask",     level: 3 },
     ],
-    "Databases": [
-      { name: "SQLite" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"},
-      { name: "MongoDB" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg"},
-      { name: "Firebase", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"}
+    Databases: [
+      { name: "SQLite",   level: 4 },
+      { name: "MongoDB",  level: 4 },
+      { name: "Firebase", level: 3 },
     ],
     "Tools & Systems": [
-      { name: "Git" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},
-      { name: "Linux" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"},
-      { name: "Docker" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},
-      { name: "Mongoose" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg"},
-      { name: "Postman" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
+      { name: "Git",     level: 5 },
+      { name: "Linux",   level: 4 },
+      { name: "Docker",  level: 4 },
+      { name: "Postman", level: 4 },
     ],
     "Hardware & Embedded": [
-      { name: "Raspberry Pi" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"},
-      { name: "IoT" , img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"}
-    ]
+      { name: "Raspberry Pi", level: 3 },
+      { name: "IoT",          level: 3 },
+    ],
   },
 
-services: [
-  {
-    name: "Full-Stack System Development",
-    description: "Building complete, production-ready web applications from frontend to backend. I focus on clean architecture, performance, and scalability — not just getting things to work.",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+  services: [
+    {
+      name: "Backend Architecture & APIs",
+      description: "Scalable, maintainable backend systems built with real architecture in mind — not just endpoints that work today. I design for growth, reliability, and the team that inherits the code.",
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "AI-Integrated Applications",
+      description: "I bring AI into production — not as a feature sticker, but as a core part of the system. From intelligent APIs to automated pipelines, I build AI that companies can ship and scale.",
+      img: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png",
+    },
+    {
+      name: "Full-Stack Delivery",
+      description: "When a project needs end-to-end ownership, I cover the full stack. Backend-first, always — but I ship complete, production-ready products when the work calls for it.",
+      img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+  ],
+
+  codewars: {
+    username: "abdrahman-dev",
+    badgeUrl: "https://www.codewars.com/users/abdrahman-dev/badges/large",
+    profileUrl: "https://www.codewars.com/users/abdrahman-dev",
+    description: "Actively solving algorithmic challenges to sharpen problem-solving instincts, data structures knowledge, and algorithmic thinking under pressure.",
   },
-  {
-    name: "Backend Architecture & APIs",
-    description: "Designing and developing scalable backend systems and APIs using best practices, system design principles, and design patterns to ensure long-term reliability and maintainability.",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+
+  contact: {
+    links: [
+      {
+        name: "Email",
+        url: "mailto:your.email@example.com",
+        img: "https://cdn.simpleicons.org/gmail/EA4335",
+        description: "Send me a message",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/abdrahman-dev",
+        img: "https://cdn.simpleicons.org/github/0f172a",
+        description: "View my open-source work",
+      },
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/abdrahman-mussa/",
+        img: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
+        description: "Connect professionally",
+      },
+      {
+        name: "WhatsApp",
+        url: "https://wa.me/+201148630739",
+        img: "https://cdn.simpleicons.org/whatsapp/25D366",
+        description: "Chat with me directly",
+      },
+    ],
   },
-  {
-    name: "AI-Powered Applications",
-    description: "Integrating AI into real applications — from recommendation systems to intelligent automation — turning complex ideas into practical, usable solutions.",
-    img: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png"  }
-],
-
-codewars: {
-  username: "abdrahman-dev",
-  badgeUrl: "https://www.codewars.com/users/abdrahman-dev/badges/large",
-  profileUrl: "https://www.codewars.com/users/abdrahman-dev",
-  description: "Actively solving algorithmic challenges to strengthen problem-solving, data structures, and algorithmic thinking."
-},
-
- contact: {
-  links: [
-    {
-      name: "Email",
-      url: "mailto:your.email@example.com",
-      img: "https://cdn.simpleicons.org/gmail/EA4335"
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com/abdrahman-dev",
-      img: "https://cdn.simpleicons.org/github/ffffff"  // أبيض للـ dark theme
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/abdrahman-mussa/",
-      img: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
-    },
-    {
-      name: "WhatsApp",
-      url: "https://wa.me/+201148630739",
-      img: "https://cdn.simpleicons.org/whatsapp/25D366"
-    }
-  ]
-},
-
-// https://cdn.simpleicons.org/{icon-name}/{hex-color}
 
   featuredRepos: [
-    { name: "TrackYourJob", liveDemo: "https://track-your-job-liart.vercel.app" },
-    { name: "DevOS", liveDemo: "https://devos-nine.vercel.app/" },
-    { name: "movie-recommender-app", liveDemo: "https://movie-rec0mmender-app.netlify.app" }
-  ]
+    {
+      name: "TrackYourJob",
+      image: "/src/data/TRJ.png",
+      liveDemo: "https://track-your-job-liart.vercel.app",
+    },
+    {
+      name: "DevOS",
+      image: "/src/data/DEVOS.png",
+      liveDemo: "https://devos-nine.vercel.app/",
+    },
+    {
+      name: "movie-recommender-app",
+      image: "/src/data/AMA.png",
+      liveDemo: "https://movie-rec0mmender-app.netlify.app",
+    },
+  ],
 };
 
 export default data;
