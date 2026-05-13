@@ -108,21 +108,9 @@ const data: PortfolioData = {
   },
 
   featuredRepos: [
-    {
-      name: "TrackYourJob",
-      image: "/src/data/TRJ.png",
-      liveDemo: "https://track-your-job-liart.vercel.app",
-    },
-    {
-      name: "DevOS",
-      image: "/src/data/DEVOS.png",
-      liveDemo: "https://devos-nine.vercel.app/",
-    },
-    {
-      name: "movie-recommender-app",
-      image: "/src/data/AMA.png",
-      liveDemo: "https://movie-rec0mmender-app.netlify.app",
-    },
+    { name: "TrackYourJob", liveDemo: "https://track-your-job-liart.vercel.app", image: "/projects/TRJ.png", liveUrl: "" },
+    { name: "DevOS", liveDemo: "https://devos-nine.vercel.app/", image: "/projects/DEVOS.png", liveUrl: "" },
+    { name: "movie-recommender-app", liveDemo: "https://movie-rec0mmender-app.netlify.app", image: "/projects/AMA.png", liveUrl: "" },
   ],
 };
 
